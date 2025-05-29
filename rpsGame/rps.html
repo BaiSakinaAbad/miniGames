@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+    <link rel="stylesheet" href="rps.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Rock - Paper - Scissors</h1>
+
+        <div class="choices">
+            <button onclick="playGame('rock')">👊🏼</button>
+            <button onclick="playGame('paper')">🤚🏼</button>
+            <button onclick="playGame('scissors')">✌🏼</button>
+        </div>
+
+        <div id="playerDisplay">PLAYER: </div>
+        <div id="computerDisplay">COMPUTER: </div>
+        <div id="resultDisplay"></div>
+
+        <div class="scoreDisplay">Player Score:
+            <span id="playerScore">0</span>
+        </div>
+
+        <div class="scoreDisplay">Computer Score:
+            <span id="computerScore">0</span>
+        </div>
+    </div>
+ 
+  <div class="bottomline">Made by <a href="https://github.com/BaiSakinaAbad" target="_blank">akiji</a>
+    <br> inspired by BroCode
+  </div>
+
+
+    <script src="rps.js"></script>
+</body>
+
+</html>
