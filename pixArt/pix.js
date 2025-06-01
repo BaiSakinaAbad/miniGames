@@ -1,5 +1,5 @@
 // References
-let container = document.querySelector(".container"); // Fixed to use class selector
+let container = document.querySelector(".container");
 let gridBtn = document.getElementById("submit-grid");
 let clearGridBtn = document.getElementById("clear-grid");
 let gridWidth = document.getElementById("width-range");
@@ -7,6 +7,9 @@ let gridHeight = document.getElementById("height-range");
 let colorBtn = document.getElementById("color-input");
 let paintBtn = document.getElementById("paint-btn");
 let eraseBtn = document.getElementById("erase-btn");
+let saveBtn = document.getElementById("save-btn");
+let backgroundChoice = document.getElementById("background-choice");
+let formatChoice = document.getElementById("format-choice");
 let widthVal = document.getElementById("width-value");
 let heighthVal = document.getElementById("height-value");
 
@@ -18,7 +21,7 @@ let events = {
         up: "mouseup",
     },
     touch: {
-        down: "touchstart", // Fixed from "touchdown"
+        down: "touchstart",
         move: "touchmove",
         up: "touchend",
     },
@@ -39,19 +42,16 @@ isTouchDevice();
 gridBtn.addEventListener("click", () => {
     container.innerHTML = ""; // Clear old grids
     let count = 0;
-    // Loop to create rows
     for (let i = 0; i < gridHeight.value; i++) {
         count += 2;
         let div = document.createElement("div");
         div.classList.add("gridRow");
-        // Create columns
         for (let j = 0; j < gridWidth.value; j++) {
             count += 2;
             let col = document.createElement("div");
             col.classList.add("gridCol");
             col.setAttribute("id", `gridCol${count}`);
 
-            // Mouse/touch down event
             col.addEventListener(events[deviceType].down, (e) => {
                 draw = true;
                 if (erase) {
@@ -61,7 +61,6 @@ gridBtn.addEventListener("click", () => {
                 }
             });
 
-            // Mouse/touch move event for continuous drawing
             col.addEventListener(events[deviceType].move, (e) => {
                 if (draw) {
                     let element = document.elementFromPoint(
@@ -74,7 +73,6 @@ gridBtn.addEventListener("click", () => {
                 }
             });
 
-            // Stop drawing on mouse/touch up
             col.addEventListener(events[deviceType].up, () => {
                 draw = false;
             });
@@ -89,17 +87,43 @@ gridBtn.addEventListener("click", () => {
 function checker(elementId) {
     let gridColumns = document.querySelectorAll(".gridCol");
     gridColumns.forEach((element) => {
-        if (elementId === element.id) { // Fixed element.Id to element.id
+        if (elementId === element.id) {
             if (draw && !erase) {
                 element.style.backgroundColor = colorBtn.value;
             } else if (draw && erase) {
-                element.style.backgroundColor = "transparent"; // Fixed assignment
+                element.style.backgroundColor = "transparent";
             }
         }
     });
 }
 
-// Event listeners (moved outside gridBtn click handler)
+// Save function
+saveBtn.addEventListener("click", () => {
+    const format = formatChoice.value;
+    const background = backgroundChoice.value;
+    const backgroundColor = background === "transparent" ? null : "#ffffff";
+
+    html2canvas(container, { backgroundColor }).then(canvas => {
+        if (format === "png") {
+            const link = document.createElement("a");
+            link.download = "pixel-art.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        } else if (format === "pdf") {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: "portrait",
+                unit: "px",
+                format: [canvas.width, canvas.height]
+            });
+            const imgData = canvas.toDataURL("image/png");
+            pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+            pdf.save("pixel-art.pdf");
+        }
+    });
+});
+
+// Other event listeners
 clearGridBtn.addEventListener("click", () => {
     container.innerHTML = "";
 });
@@ -121,6 +145,8 @@ gridHeight.addEventListener("input", () => {
 });
 
 window.onload = () => {
-    gridHeight.value = 0;
-    gridWidth.value = 0;
+    gridHeight.value = 10;
+    gridWidth.value = 10;
+    widthVal.innerHTML = "10";
+    heighthVal.innerHTML = "10";
 };
