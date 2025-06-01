@@ -30,10 +30,15 @@ span{
 .opt-wrapper{
     display:flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     gap:10px;
+
 }
-button{
+.opt{
+   display: relative;
+   margin-bottom: 10px;
+}
+button, .opt{
     background-color: hsl(32, 100%, 81%);
     border:none;
     border-radius: 5px;

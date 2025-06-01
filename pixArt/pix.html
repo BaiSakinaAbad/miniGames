@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pixel Art Editor</title>
     <link rel="stylesheet" href="pix.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -29,6 +30,15 @@
                 <button id="erase-btn">Erase</button>
                 <button id="paint-btn">Paint</button>
             </div>
+             <select class= "opt" id="background-choice">
+                    <option value="transparent">Transparent Background</option>
+                    <option value="white">White Background</option>
+                </select>
+                <select class= "opt" id="format-choice">
+                    <option value="png">Save as PNG</option>
+                    <option value="pdf">Save as PDF</option>
+                </select>
+                <button id="save-btn">Save Art</button>
         </div>
         <div class="container"></div>
     </div>
