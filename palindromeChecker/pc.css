@@ -1,22 +1,48 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  padding: 50px;
-  background-color: #e0f0ff;
+  background-color: #cce7ff;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+h1{
+  font-family: cursive, sans-serif;
+  color:aliceblue;
+}
 input {
-  padding: 10px;
+  padding: 15px;
   width: 250px;
   margin: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 15px 20px;
   cursor: pointer;
+  border-radius: 5px;
+  border: solid 2px hsl(209, 94%, 32%);
 }
 
+button:hover{
+  background-color: hsl(209, 95%, 84%);
+}button:active{
+  background-color: hsl(209, 95%, 50%);
+}
 #result {
   font-size: 18px;
   margin-top: 20px;
+}
+
+
+.container {
+  padding: 90px;
+  border-radius: 5px;
+  border: solid 2px hsl(209, 97%, 75%);
+  background-color: #007ced;
+	background: linear-gradient(to bottom, #007ced 1%,#cce7ff 100%);
+}
 }
