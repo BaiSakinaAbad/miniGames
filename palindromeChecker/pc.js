@@ -10,11 +10,11 @@ checkBtn.addEventListener("click", () => {
     alert("Please input a value.");
     return;
   } else {
-    // clean the input
+    // clean the spaces before anf after, then turn them all to lowercase
     const cleanStr = inputWord.trim().toLowerCase();
     // remove all spaces and non-alphabetical characters
     const noSpace = inputWord.toLowerCase().replace(/[^a-z0-9]/g, "");
-    // reverse is a method for array, not string, so we convert the string into an array, reverse that array, and then join it into a string
+    // reverse is a method for array, not string, so we convert the string into an array, reverse that array, and then join it back
     const reversed = noSpace.split('').reverse().join('');
     
     if (noSpace === reversed) {

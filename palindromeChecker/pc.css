@@ -5,6 +5,7 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -45,4 +46,25 @@ button:hover{
   background-color: #007ced;
 	background: linear-gradient(to bottom, #007ced 1%,#cce7ff 100%);
 }
+
+a{
+  text-decoration: none;
+  color:hsl(208, 100%, 65%);
+}
+a:hover{
+   color:hsl(208, 100%, 45%);
+}
+a:active{
+   color:hsl(208, 100%, 95%);
+}
+.credits{
+  margin-top: 60px;
+  color:hsl(208, 100%, 70%);
+  font-family: cursive, sans-serif;
+font-size: 1.1rem;
+}
+#result{
+   color:hsl(208, 100%, 30%);
+  font-family: cursive, sans-serif;
+font-size: 1.1rem;
 }
