@@ -54,10 +54,10 @@ color: hsl(200, 4%, 13%);
     background-color: hsl(305, 50%, 95%);
 }
 
-#playerDisplay, #computerDisplay{
+#playerDisplay, #computerDisplay, #playerNameDisplay{
     font-size: 1.5rem;
 }
-#resultDisplay{
+#resultDisplay, #playerNameDisplay{
     font-size: 3rem;
     margin: 10px 0;
 }

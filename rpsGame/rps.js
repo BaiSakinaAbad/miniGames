@@ -4,8 +4,20 @@ const computerDisplay = document.getElementById("computerDisplay");
 const resultDisplay = document.getElementById("resultDisplay");
 const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
+const playerNameDisplay = document.getElementById("playerNameDisplay");
 let playerScoreVal = 0;
 let computerScoreVal = 0;
+let playerName = "";
+
+promptPlayerName();
+
+function promptPlayerName(){
+    playerName = prompt("Enter your name:", "Player");
+    if(playerName === null || playerName.trim() === ""){
+        playerName = "Player";
+    }
+    playerNameDisplay.textContent = `Welcome ${playerName}! First 5 WINS!`;
+}
 
 function playGame(playerChoice){
 
@@ -46,6 +58,25 @@ switch(result){
         computerScore.textContent = computerScoreVal;
         break;
 }
+    
+    if(playerScoreVal === 5 || computerScoreVal === 5){
+        setTimeout(() => {
+            if(playerScoreVal === 5){  
+                resultDisplay.textContent = `CONGRATULATIONS! ${playerName} IS THE CHAMPION!🏆`;
+            } else {
+                resultDisplay.textContent = `OH NO ${playerName}! THE COMPUTER WINS! BETTER LUCK NEXT TIME!🤖`;
+            }   
+            resetGame();
+        }, 100);
+    }
 
+    function resetGame(){
+        playerScoreVal = 0;
+        computerScoreVal = 0;
+        playerScore.textContent = playerScoreVal;
+        computerScore.textContent = computerScoreVal;
+        playerDisplay.textContent = "PLAYER: ";
+        computerDisplay.textContent = "COMPUTER: ";
+    }
 }
 
