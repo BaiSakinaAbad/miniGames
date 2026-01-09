@@ -9,8 +9,7 @@ body{
     height: 100vh;
     background: linear-gradient(
         to right,
-        #6aa5ff,
-        #7453c1
+        hsl(216, 45%, 70%), hsl(216, 45%, 66%)
     );
 }
 .container{
@@ -23,11 +22,10 @@ body{
     padding:50px 20px;
     background: linear-gradient(
         to right,
-        hsl(216, 100%, 90%),
-        hsl(258, 100%, 90%)
+         hsl(43, 19%, 93%), hsl(43, 19%, 90%)
     );
     border-radius: 10px;
-    border: #f3eeff solid 3px;
+    border: #4A70A9 solid 3px;
     display: grid;
     justify-items: center;
     font-family: cursive, sans-serif;
@@ -39,32 +37,32 @@ h3{
 input[type="text"]{
     width: 130px;
     font-weight: 600;
-    color:#8563d3;
+    color:#4A70A9;
     padding: 15px 10px;
     text-align: center;
     border-radius: 5px;
-    border:#7453c1 2px solid;
+    border:#4A70A9 2px solid;
     margin-top:20px;
     font-size: 1.5rem;
 }
 button{
     width: 200px;
     padding: 15px 0;
-    background-color: hsl(258, 69%, 60%);
+    background-color: hsl(216, 39%, 48%);
     border-radius: 5px;
-    border: 2px solid #7453c1;
+    border: 2px solid hsl(216, 39%, 30%);;
     color:aliceblue;
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 18px;
 }
 button:hover{
-     background-color: hsl(258, 69%, 80%);
+     background-color: hsl(216, 39%, 30%);
      cursor: pointer;
 }
 button:active{
-    background-color: hsl(258, 69%, 90%);
-    color: #7453c1;
+    background-color:hsl(216, 39%, 90%);;
+    color: #0e1c30;
 }
 p{
     font-weight: 400;
@@ -78,10 +76,9 @@ p{
 	z-index: -1;
 	background: linear-gradient(
         to right,
-        hsl(216, 82%, 65%),
-        hsl(258, 86%, 66%)
+        hsl(216, 45%, 70%), hsl(216, 45%, 50%)
     );
-	box-shadow: 0 0 50px #93ddff, 0 0 100px #91d6fd, 0 0 150px #cba6ff, 0 0 200px #fbb6ff;
+	box-shadow: 0 0 50px #93ddff, 0 0 100px #91d6fd, 0 0 150px #a9a6ff, 0 0 200px #fbb6ff;
 	animation: animate 10s linear infinite;
 }
 .wrapper span:nth-child(1) {
