@@ -2,8 +2,15 @@ let [milliseconds, seconds, minutes, hours] = [0,0,0,0];
 let timerRef = document.querySelector('.timerDisplay');
 let int;
 
+let isStarted = false;
+let isPaused = false;
+let isReset = false;
+
 document.getElementById('startBtn').addEventListener('click', ()=>{
-    int = setInterval(displayTimer,10);
+    isStarted = true;
+    if(isStarted){
+    int = setInterval(displayTimer,10);;
+    }
 });
 
 document.getElementById('pauseBtn').addEventListener('click', ()=>{
