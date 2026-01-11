@@ -7,17 +7,17 @@ let isPaused = false;
 let isReset = false;
 
 document.getElementById('startBtn').addEventListener('click', ()=>{
-    isStarted = true;
-    if(isStarted){
     int = setInterval(displayTimer,10);;
-    }
+    startBtn.disabled = true;
 });
 
 document.getElementById('pauseBtn').addEventListener('click', ()=>{
+    startBtn.disabled = false;
     clearInterval(int);
 });
 
 document.getElementById('resetBtn').addEventListener('click', ()=>{
+    startBtn.disabled = false;
     clearInterval(int);
     [milliseconds, seconds, minutes, hours] = [0,0,0,0];
     timerRef.innerHTML = '00 : 00 : 00 : 000'
